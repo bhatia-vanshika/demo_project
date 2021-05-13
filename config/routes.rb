@@ -6,6 +6,10 @@ Rails.application.routes.draw do
   namespace :users do
   	resources :posts
   end
+
+  namespace :admins do
+  	resources :posts
+  end
   root to: 'users/posts#index'
   
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

@@ -7,4 +7,14 @@ class User < ApplicationRecord
   ##Relationship##
 
   has_many :posts
+
+  ## Validations ##
+  validates :first_name, :last_name, :presence => true
+
+  
+  ##instance_methods##
+
+  def admin_user?
+  	self.user_type == 1
+  end
 end
