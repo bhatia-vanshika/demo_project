@@ -11,7 +11,14 @@
   </head>
 
   <body>
-    <%= link_to 'Logout',destroy_user_session_path, method: :delete if current_user.present?%>
+    <!-- Begin Bootstrap Navbar -->
+    <nav class="navbar navbar-light bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand">Demo Project</a>    
+        <%= link_to 'Logout',destroy_user_session_path, method: :delete if current_user.present?%>
+      </div>
+    </nav>
+    <!-- End Bootstrap Navbar -->
     <%= yield %>
   </body>
 </html>
