@@ -1,25 +1,32 @@
-<h2>Change your password</h2>
+<div class="container-xxl my-md-4 bd-layout">
+  <aside class="bd-sidebar">
+  </aside>
+  <main class="bd-main order-1">
+    <div class="bd-content ps-lg-4">      
+      <h2 id="forms">Change your password</h2>
+      <div class="bd-example">
+        <%= form_for(resource, as: resource_name, url: password_path(resource_name), class: "row g-3", html: { method: :put }) do |f| %>
+          <%= render "users/shared/error_messages", resource: resource %>
+          <%= f.hidden_field :reset_password_token %>
 
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
-  <%= render "users/shared/error_messages", resource: resource %>
-  <%= f.hidden_field :reset_password_token %>
+          <div class="col-md-6">
+            <%= f.label :password, "New password", class: "form-label" %><br />
+            <% if @minimum_password_length %>
+              <em>(<%= @minimum_password_length %> characters minimum)</em><br />
+            <% end %>
+            <%= f.password_field :password, autofocus: true, autocomplete: "new-password", class: "form-control" %>
+          </div>
 
-  <div class="field">
-    <%= f.label :password, "New password" %><br />
-    <% if @minimum_password_length %>
-      <em>(<%= @minimum_password_length %> characters minimum)</em><br />
-    <% end %>
-    <%= f.password_field :password, autofocus: true, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation, "Confirm new password" %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Change my password" %>
-  </div>
-<% end %>
-
-<%= render "users/shared/links" %>
+          <div class="col-md-6">
+            <%= f.label :password_confirmation, "Confirm new password", class: "form-label" %><br />
+            <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
+          </div>
+          <div class="col-12">
+            <%= f.submit "Change my password", class: "btn btn-primary" %>
+          </div>
+        <% end %>
+      </div>
+    </div>  
+    <%= render "users/shared/links" %>
+  </main>
+</div>
