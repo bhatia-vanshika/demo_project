@@ -4,4 +4,7 @@ class Post < ApplicationRecord
 
   belongs_to :user
 
+  ## Validations ##
+  validates :title, :body, :presence => true
+
 end
