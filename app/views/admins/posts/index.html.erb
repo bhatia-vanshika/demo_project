@@ -3,8 +3,22 @@
   </aside>
   <main class="bd-main order-1">
     <div class="bd-content ps-lg-4">
+      <% flash.each do |name, msg| %>
+        <% if msg.class == Array %>
+          <% msg.each do |m| %>
+            <div class="alert alert-<%= name.to_s == 'notice' ? 'success' : 'danger' %> alert-dismissible fade show" role="alert">
+              <%= m %>
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+          <% end %>
+        <% else %>
+          <div class="alert alert-<%= name.to_s == 'notice' ? 'success' : 'danger' %> alert-dismissible fade show" role="alert">
+            <%= msg %>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>          
+          </div>
+        <% end %>
+      <% end %>      
       <h2 id="overview">Posts</h2>
-      <p id="notice"><%= notice %></p>
       <div class="bd-example">
         <table class="table">
           <thead>
