@@ -1,23 +1,17 @@
-<div class="container-xxl my-md-4 bd-layout">
-  <aside class="bd-sidebar">
-  </aside>
-  <main class="bd-main order-1">
-    <div class="bd-content ps-lg-4">      
-      <h2 id="forms">Forgot your password?</h2>
-      <div class="bd-example">
-        <%= form_for(resource, as: resource_name, url: password_path(resource_name), class: "row g-3", html: { method: :post }) do |f| %>
-          <%= render "users/shared/error_messages", resource: resource %>
+<div class="bd-content ps-lg-4">      
+  <h2 id="forms">Forgot your password?</h2>
+  <div class="bd-example">
+    <%= form_for(resource, as: resource_name, url: password_path(resource_name), class: "row g-3", html: { method: :post }) do |f| %>
+      <%= render "users/shared/error_messages", resource: resource %>
 
-          <div class="col-md-6">
-            <%= f.label :email, class: "form-label" %><br />
-            <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
-          </div><br/>
-          <div class="col-12">
-            <%= f.submit "Send me reset password instructions", class: "btn btn-primary" %>
-          </div>
-        <% end %>
+      <div class="col-md-6">
+        <%= f.label :email, class: "form-label" %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+      </div><br/>
+      <div class="col-12">
+        <%= f.submit "Send me reset password instructions", class: "btn btn-primary" %>
       </div>
-    </div>
-    <%= render "users/shared/links" %>
-  </main>
+    <% end %>
+  </div>
 </div>
+<%= render "users/shared/links" %>

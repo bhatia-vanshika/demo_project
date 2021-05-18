@@ -1,13 +1,7 @@
-<div class="container-xxl my-md-4 bd-layout">
-  <aside class="bd-sidebar">
-  </aside>
-  <main class="bd-main order-1">
-    <div class="bd-content ps-lg-4">      
-      <h2 id="forms">Add Post</h2>
-      <div class="bd-example">
-				<%= render 'form', post: @post %>
-			</div>
-		</div></br>
-		<%= link_to 'Back', users_posts_path %>
-	</main>
-</div>
+<div class="bd-content ps-lg-4">      
+  <h2 id="forms">Add Post</h2>
+  <div class="bd-example">
+		<%= render 'form', post: @post %>
+	</div>
+</div></br>
+<%= link_to 'Back', users_posts_path %>

@@ -17,8 +17,14 @@
         <a class="navbar-brand">Demo Project</a>    
         <%= link_to 'Logout',destroy_user_session_path, method: :delete if current_user.present?%>
       </div>
-    </nav>
+    </nav>    
     <!-- End Bootstrap Navbar -->
-    <%= yield %>
+    <div class="container-xxl my-md-4 bd-layout">
+      <aside class="bd-sidebar">
+      </aside>
+      <main class="bd-main order-1">
+        <%= yield %>
+      </main>
+    </div>
   </body>
 </html>
