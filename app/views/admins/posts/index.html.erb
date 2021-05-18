@@ -1,49 +1,43 @@
-<div class="container-xxl my-md-4 bd-layout">
-  <aside class="bd-sidebar">
-  </aside>
-  <main class="bd-main order-1">
-    <div class="bd-content ps-lg-4">
-      <% flash.each do |name, msg| %>
-        <% if msg.class == Array %>
-          <% msg.each do |m| %>
-            <div class="alert alert-<%= name.to_s == 'notice' ? 'success' : 'danger' %> alert-dismissible fade show" role="alert">
-              <%= m %>
-              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
-          <% end %>
-        <% else %>
-          <div class="alert alert-<%= name.to_s == 'notice' ? 'success' : 'danger' %> alert-dismissible fade show" role="alert">
-            <%= msg %>
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>          
-          </div>
-        <% end %>
-      <% end %>      
-      <h2 id="overview">Posts</h2>
-      <div class="bd-example">
-        <table class="table">
-          <thead>
-            <tr>
-              <th scope="col">Title</th>
-              <th scope="col">Body</th>
-              <th scope="col" colspan="3">Link</th>
-            </tr>
-          </thead>
-          <tbody>
-            <% @posts.each do |post| %>
-              <tr>
-                <td><%= post.title %></td>
-                <td><%= post.body %></td>
-                <td><%= link_to 'Show', admins_post_path(post) %></td>
-        <td><%= link_to 'Edit', edit_admins_post_path(post) %></td>
-        <td><%= link_to 'Destroy', admins_post_path(post), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-              </tr>
-            <% end %>
-            
-          </tbody>
-        </table>
+<div class="bd-content ps-lg-4">
+  <% flash.each do |name, msg| %>
+    <% if msg.class == Array %>
+      <% msg.each do |m| %>
+        <div class="alert alert-<%= name.to_s == 'notice' ? 'success' : 'danger' %> alert-dismissible fade show" role="alert">
+          <%= m %>
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+      <% end %>
+    <% else %>
+      <div class="alert alert-<%= name.to_s == 'notice' ? 'success' : 'danger' %> alert-dismissible fade show" role="alert">
+        <%= msg %>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>          
       </div>
-    </div>
-  </br>
-<%= link_to 'New Post', new_admins_post_path %>
-  </main>
+    <% end %>
+  <% end %>      
+  <h2 id="overview">Posts</h2>
+  <div class="bd-example">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Title</th>
+          <th scope="col">Body</th>
+          <th scope="col" colspan="3">Link</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @posts.each do |post| %>
+          <tr>
+            <td><%= post.title %></td>
+            <td><%= post.body %></td>
+            <td><%= link_to 'Show', admins_post_path(post) %></td>
+    <td><%= link_to 'Edit', edit_admins_post_path(post) %></td>
+    <td><%= link_to 'Destroy', admins_post_path(post), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        <% end %>
+        
+      </tbody>
+    </table>
+  </div>
 </div>
+</br>
+<%= link_to 'New Post', new_admins_post_path %>

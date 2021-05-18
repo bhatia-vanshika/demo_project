@@ -1,25 +1,19 @@
-<div class="container-xxl my-md-4 bd-layout">
-  <aside class="bd-sidebar">
-  </aside>
-  <main class="bd-main order-1">
-		<div class="bd-content ps-lg-4">	
-			<p id="notice"><%= notice %></p>
-			<div class="accordion" id="accordionExample">
-			  <div class="accordion-item">
-			    <h2 class="accordion-header" id="headingOne">
-			      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-			        <%= @post.title%>
-			      </button>
-			    </h2>
-			    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-			      <div class="accordion-body">
-			        <%= @post.body %>
-			      </div>
-			    </div>
-			  </div>
-			</div>
-		</div></br>
-		<%= link_to 'Edit', edit_users_post_path(@post) %> |
-		<%= link_to 'Back', users_posts_path %>
-	</main>
-</div>
+<div class="bd-content ps-lg-4">	
+	<p id="notice"><%= notice %></p>
+	<div class="accordion" id="accordionExample">
+	  <div class="accordion-item">
+	    <h2 class="accordion-header" id="headingOne">
+	      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+	        <%= @post.title%>
+	      </button>
+	    </h2>
+	    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+	      <div class="accordion-body">
+	        <%= @post.body %>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+</div></br>
+<%= link_to 'Edit', edit_users_post_path(@post) %> |
+<%= link_to 'Back', users_posts_path %>
